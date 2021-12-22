@@ -1,0 +1,56 @@
+Add In stylesHome.css-----------------------------------
+div.center{
+    margin: 100px;
+    padding: 10px;
+    text-align: center;
+    font-size: 40px;
+}
+
+table.userSub th, td{
+    font-size: 15px;
+    padding: 15px;
+    
+}
+table.userSub tr{
+    border-bottom: 2px solid black;
+    border-collapse: collapse;
+}
+
+
+
+
+
+Add in home.html-----------------------
+
+<div class="center">
+        Recent Subission
+        <table class="userSub">
+            <tr>
+                <th>User Name</th>
+                <th>Submission Time</th>
+                <th>Problem</th>
+                <th>Online Judge</th>
+                <th>Used Language</th>
+                <th>Verdict</th>
+                <th>Time Taken</th>
+            </tr>
+
+
+            <script>
+                for(var i= 0;i<10;i++){
+                    document.write("<tr>");
+                    
+                        document.write("<td>" +"#user"+"</td>");
+                        document.write("<td>" +"#st"+"</td>");
+                        document.write("<td>" +"#prob"+"</td>");
+                        document.write("<td>" +"#Oj"+"</td>");
+                        document.write("<td>" +"#lan"+"</td>");
+                        document.write("<td>" +"#ver"+"</td>");
+                        document.write("<td>" +"#time"+"</td>");
+                    document.write("</tr>");
+                }
+            </script>
+      
+        </table>
+
+    </div>
