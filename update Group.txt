@@ -1,0 +1,39 @@
+<div class="center">
+        List of Groups
+        <button class="menu" style="float: right" onclick="openForm()">create</button>
+
+        <div class="form-popup" id="createGroupForm">
+            <form action="/action_page.php" class="groupForm">
+                <h1>Create New Group</h1>
+                <label for="groupName"><b>Group Name</b></label>
+                <input type="text" placeholder="Enter Group Name (must be unique)" name="groupName" required>
+                <button type="submit" class="btn">Create Group</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
+        <script>
+            function openForm() {
+                document.getElementById("createGroupForm").style.display = "block";
+            }
+
+            function closeForm() {
+                document.getElementById("createGroupForm").style.display = "none";
+            }
+
+        </script>
+
+
+    </div>
+
+
+css---------------------------------
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    font-size: 15px;
+}
