@@ -35,14 +35,17 @@ $database    = "programming_assistant";
 
         if($num_rows==0)
         {           
-            $msg= 'You are not member of any group <br><br>';
+            $msg = 'You are not member of any group';
         }else{
-            $msg= '';
+            $msg = '';
         }
 
 mysqli_close($connection);
 
 ?>
+
+
+
 
 
 
@@ -60,6 +63,8 @@ mysqli_close($connection);
 </head>
 
 <body>
+   
+    
     
 
 
@@ -75,6 +80,7 @@ mysqli_close($connection);
                 <h1>Create New Group</h1>
                 <label for="groupName"><b>Group Name</b></label>
                 <input type="text" placeholder="Enter Group Name (must be unique)" name="groupName" required>
+                <input type="hidden" value="<?php echo $userHandle?>" name="userName">
                 <button type="submit" class="btn">Create Group</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
@@ -87,7 +93,6 @@ mysqli_close($connection);
             function openForm() {
                 document.getElementById("createGroupForm").style.display = "block";
             }
-
             function closeForm() {
                 document.getElementById("createGroupForm").style.display = "none";
             }
@@ -118,8 +123,10 @@ mysqli_close($connection);
                     var temp2 = <?php echo '["' . implode('", "', $arr) . '"]' ?>;
                     
                     for (var i = 0; i < N; i++) {
+                        var url = "<a href='Groups2.php?key="+temp2[i]+"'>"
+                        console.log(url);
                         document.write("<tr>");
-                        document.write("<td>" + "<a href='#group'>" + temp2[i] + "</a>" + "</td>");
+                        document.write("<td>" + url + temp2[i] + "</a>" + "</td>");
                         document.write("<td>" + "#member count" + "</td>");
                         document.write("</tr>");
                     }

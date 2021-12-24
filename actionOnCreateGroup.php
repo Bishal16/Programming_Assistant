@@ -41,8 +41,11 @@ $connection = mysqli_connect($server, $user, $password, $database);
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $groupName=$_POST["groupName"];
+    $userName=$_POST["userName"];
+    $admin = 'Yes';
+    echo $userName;
  
-        $sql= "Insert into groupInfo (groupName) values('$groupName')";
+        $sql= "Insert into groupInfo (groupName, memberHandle, adminStatus) values('$groupName','$userName', '$admin')";
         $iquery = mysqli_query($connection,$sql);
         
         if($iquery)
@@ -59,3 +62,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 mysqli_close($connection);
 
 ?>
+<script>
+    window.location.href = "groups.php";
+</script>
